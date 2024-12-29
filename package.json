@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && npm run copy-templates",
+    "copy-templates": "cp -r src/templates dist/src/",
     "start": "node ./dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

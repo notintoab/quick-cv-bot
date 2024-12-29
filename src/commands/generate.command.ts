@@ -11,11 +11,11 @@ export class GenerateCommand extends Command {
     }
 
     handle(): void {
-        this.bot.command("generate", this.generateCommand);
+        this.bot.command("generate", (ctx) => this.generateCommand(ctx));
     }
 
-    async generateCommand(ctx: IBotContext) {
-        console.log("Generating your CV...");
+    private async generateCommand(ctx: IBotContext) {
+        ctx.reply("Generating your CV...");
 
         const { name, surname, experience, skills } = ctx.session.cvData;
         if (!name || !surname || !experience || !skills) {
@@ -40,10 +40,10 @@ export class GenerateCommand extends Command {
         console.log("Template loaded successfully.");
 
         const htmlContent = htmlTemplate
-            .replace('${name}', name || "Not provided")
-            .replace('${surname}', surname || "Not provided")
-            .replace('${experience}', experience || "Not provided")
-            .replace('${skills}', skills || "Not provided");
+            .replace('{{name}}', name || "Not provided")
+            .replace('{{surname}}', surname || "Not provided")
+            .replace('{{experience}}', experience || "Not provided")
+            .replace('{{skills}}', skills || "Not provided");
 
         console.log("HTML content generated.");
 

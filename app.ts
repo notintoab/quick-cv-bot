@@ -23,9 +23,10 @@ class Bot {
         // Commands registration
         this.commands = [
             new StartCommand(this.bot),
+            new GenerateCommand(this.bot),
             new TemplateCommand(this.bot),
             new FillCommand(this.bot),
-            new GenerateCommand(this.bot),
+            
         ];
         
         // Each command initialization
