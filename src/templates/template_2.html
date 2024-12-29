@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Template 2</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f4f4f4;
+            margin: 40px;
+        }
+        .cv-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .cv-container h1 {
+            text-align: center;
+        }
+        .cv-container p {
+            margin: 10px 0;
+        }
+        .cv-container .section-title {
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <h1>{{name}} {{surname}}</h1>
+        <p class="section-title">Experience:</p>
+        <p>{{experience}}</p>
+
+        <p class="section-title">Skills:</p>
+        <p>{{skills}}</p>
+    </div>
+</body>
+</html>

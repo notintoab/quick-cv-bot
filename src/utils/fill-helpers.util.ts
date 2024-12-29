@@ -1,7 +1,6 @@
 import { IBotContext } from "../context/context.interface";
 import { isTextMessage } from "./text-message-guard.util";
 
-// Function to start the process of filling out the CV
 export async function fillCommand(ctx: IBotContext) {
     if (!ctx.session.cvTemplate) {
         ctx.reply("Please select a template first using /template.");
@@ -12,16 +11,9 @@ export async function fillCommand(ctx: IBotContext) {
     ctx.reply("Let's start filling out your CV. Please enter your name:");
 }
 
-// Function to process the user input
 export async function handleUserInput(ctx: IBotContext) {
     const step = ctx.session.step;
 
-    if (!step) {
-        ctx.reply("Use /fill to start filling out your CV.");
-        return;
-    }
-
-    // Check if the message is a text message
     if (!isTextMessage(ctx.message)) {
         ctx.reply("Please provide a valid text input.");
         return;
@@ -63,6 +55,7 @@ export async function handleUserInput(ctx: IBotContext) {
             await ctx.reply(
                 `If everything is correct, use /generate to create your CV.\n` +
                 `If you want to edit anything, restart the process with /fill.`);
+                console.log(ctx.session);
             break;
 
         default:

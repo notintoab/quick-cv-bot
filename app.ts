@@ -7,6 +7,7 @@ import { StartCommand } from "./src/commands/start.command";
 import LocalSession from "telegraf-session-local";
 import { FillCommand } from "./src/commands/fill.command";
 import { TemplateCommand } from "./src/commands/template.command";
+import { GenerateCommand } from "./src/commands/generate.command";
 
 class Bot {
     bot: Telegraf<IBotContext>;
@@ -24,6 +25,7 @@ class Bot {
             new StartCommand(this.bot),
             new TemplateCommand(this.bot),
             new FillCommand(this.bot),
+            new GenerateCommand(this.bot),
         ];
         
         // Each command initialization
