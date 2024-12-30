@@ -22,3 +22,11 @@ Quick CV Bot is a Telegram bot that helps create CVs in just a few steps. Users 
 2. **Choose a template**: Use the `/template` command to pick a design.  
 3. **Fill in details**: The bot will guide you step-by-step with the `/fill` command.  
 4. **Generate your CV**: Use the `/generate` command to receive your CV as a PDF.  
+
+### Demo 
+
+<img src="./demo-1.gif" alt="Demo GIF" width="360">
+
+<img src="./demo-2.gif" alt="Demo GIF" width="360">
+
+<img src="./demo-3.png" alt="Demo PNG">
