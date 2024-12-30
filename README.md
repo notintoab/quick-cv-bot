@@ -1,4 +1,4 @@
-<img src="./logo.png" alt="Logo" width="100" height="100">
+<img src="assets/logo.png" alt="Logo" width="100" height="100">
 
 # Quick CV Bot  
 
@@ -25,8 +25,8 @@ Quick CV Bot is a Telegram bot that helps create CVs in just a few steps. Users 
 
 ### Demo 
 
-<img src="./demo-1.gif" alt="Demo GIF" width="360">
+<img src="assets/demo-1.gif" alt="Demo GIF" width="360">
 
-<img src="./demo-2.gif" alt="Demo GIF" width="360">
+<img src="assets/demo-2.gif" alt="Demo GIF" width="360">
 
-<img src="./demo-3.png" alt="Demo PNG">
+<img src="assets/demo-3.png" alt="Demo PNG" width="860">
