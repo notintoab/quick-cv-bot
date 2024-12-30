@@ -26,7 +26,7 @@ export class TemplateCommand extends Command {
             ctx.session.cvTemplate = (ctx.match?.[0]);
             console.log(ctx.session);
             await ctx.editMessageText("Nice pick!");
-            await ctx.sendMessage("Let’s move on and gather your information for the CV.\nJust press /fill");
+            await ctx.sendMessage("Let’s move on and gather your information for the CV.\nJust press /fill.");
         });
 
     }

@@ -6,12 +6,15 @@ export interface SessionData {
     cvTemplate?: string;
 
     cvData: {
-        name?: string;
-        surname?: string;
-        experience?: string;
+        fullname?: string;
+        email?: string;
+        phone?: string;
         skills?: string;
+        experience?: string;
+        education?: string;
+        summary?: string;
     };
-    step?: "name" | "surname" | "experience" | "skills" | null;
+    step?: "fullname" | "email" | "phone" | "skills" | "experience" | "education" | "summary" | null;
 }
 
 export interface IBotContext extends Context {

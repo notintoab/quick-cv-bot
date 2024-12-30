@@ -3,45 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Template 1</title>
+    <title>CV Template</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
-            margin: 40px;
+            margin: 20px auto;
+            max-width: 700px;
+            color: #333;
+            background-color: #f9f9f9;
         }
-        .cv-header {
+
+        .container {
+            padding: 20px;
+            border: 1px solid #ddd;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
             text-align: center;
-            margin-bottom: 30px;
-        }
-        .cv-header h1 {
-            margin: 0;
-        }
-        .cv-section {
+            color: #444;
             margin-bottom: 20px;
         }
-        .cv-section h2 {
-            margin: 0 0 10px 0;
+
+        h2 {
+            font-size: 18px;
+            margin-top: 20px;
+            color: #555;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
         }
-        .cv-section p {
+
+        p {
+            margin: 10px 0;
+        }
+
+        .skills,
+        .experience,
+        .education {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .skills li,
+        .experience li,
+        .education li {
             margin: 5px 0;
+            padding-left: 15px;
+            text-indent: -10px;
+        }
+
+        .skills li::before,
+        .experience li::before,
+        .education li::before {
+            content: "•";
+            color: #007acc;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .summary {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #555;
         }
     </style>
 </head>
 <body>
-    <div class="cv-header">
-        <h1>{{name}} {{surname}}</h1>
-        <p>Experienced professional with expertise in various fields.</p>
-    </div>
+    <div class="container">
+        <h1>{{fullname}}</h1>
+        <p><strong>Email:</strong> {{email}}</p>
+        <p><strong>Phone:</strong> {{phone}}</p>
 
-    <div class="cv-section">
-        <h2>Experience</h2>
-        <p>{{experience}}</p>
-    </div>
+        <h2>Summary</h2>
+        <p class="summary">{{summary}}</p>
 
-    <div class="cv-section">
         <h2>Skills</h2>
-        <p>{{skills}}</p>
+        <ul class="skills">
+            {{skills}}
+        </ul>
+
+        <h2>Experience</h2>
+        <ul class="experience">
+            {{experience}}
+        </ul>
+
+        <h2>Education</h2>
+        <ul class="education">
+            {{education}}
+        </ul>
     </div>
 </body>
 </html>

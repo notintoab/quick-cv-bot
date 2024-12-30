@@ -6,36 +6,101 @@
     <title>CV Template 2</title>
     <style>
         body {
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #f4f4f4;
-            margin: 40px;
-        }
-        .cv-container {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .cv-container h1 {
-            text-align: center;
-        }
-        .cv-container p {
-            margin: 10px 0;
-        }
-        .cv-container .section-title {
-            font-weight: bold;
+            font-family: Arial, sans-serif;
             color: #333;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+
+        h1 {
+            color: #102635;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            display: flex;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar {
+            width: 30%;
+            background: #102635;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .sidebar h1 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .sidebar p {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        .content {
+            width: 70%;
+            padding: 20px;
+        }
+
+        h2 {
+            border-bottom: 2px solid #102635;
+            padding-bottom: 5px;
+            color: #444;
+            font-size: 18px;
+        }
+
+        ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        ul li {
+            margin: 5px 0;
+            padding-left: 10px;
+            text-indent: -10px;
+        }
+
+        ul li::before {
+            content: "•";
+            color: #007acc;
+            font-weight: bold;
+            margin-right: 5px;
         }
     </style>
 </head>
 <body>
-    <div class="cv-container">
-        <h1>{{name}} {{surname}}</h1>
-        <p class="section-title">Experience:</p>
-        <p>{{experience}}</p>
+    <div class="container">
+        <div class="sidebar">
+            <h1>{{fullname}}</h1>
+            <p><strong>Email:</strong> {{email}}</p>
+            <p><strong>Phone:</strong> {{phone}}</p>
+        </div>
+        <div class="content">
+            <h2>Summary</h2>
+            <p>{{summary}}</p>
 
-        <p class="section-title">Skills:</p>
-        <p>{{skills}}</p>
+            <h2>Skills</h2>
+            <ul>
+                {{skills}}
+            </ul>
+
+            <h2>Experience</h2>
+            <ul>
+                {{experience}}
+            </ul>
+
+            <h2>Education</h2>
+            <ul>
+                {{education}}
+            </ul>
+        </div>
     </div>
 </body>
 </html>

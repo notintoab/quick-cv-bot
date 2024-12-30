@@ -17,17 +17,21 @@ export class GenerateCommand extends Command {
     private async generateCommand(ctx: IBotContext) {
         ctx.reply("Generating your CV...");
 
-        const { name, surname, experience, skills } = ctx.session.cvData;
-        if (!name || !surname || !experience || !skills) {
+        const { fullname, email, phone, skills, experience, education, summary } = ctx.session.cvData;
+
+        // Check if all fields are filled before generating CV
+        if (!fullname || !email || !phone || !skills || !experience || !education || !summary) {
             ctx.reply("Please fill in all fields using /fill before generating your CV.");
             return;
         }
 
+        // Check if a template has been selected
         if (!ctx.session.cvTemplate) {
             ctx.reply("Please select a template first using /template.");
             return;
         }
 
+        // Load the template
         const templatePath = path.resolve(__dirname, `../templates/${ctx.session.cvTemplate}.html`);
         console.log("Template path:", templatePath);
 
@@ -39,14 +43,19 @@ export class GenerateCommand extends Command {
         const htmlTemplate = fs.readFileSync(templatePath, 'utf-8');
         console.log("Template loaded successfully.");
 
+        // Generate HTML content with the data
         const htmlContent = htmlTemplate
-            .replace('{{name}}', name || "Not provided")
-            .replace('{{surname}}', surname || "Not provided")
+            .replace('{{fullname}}', fullname || "Not provided")
+            .replace('{{email}}', email || "Not provided")
+            .replace('{{phone}}', phone || "Not provided")
+            .replace('{{skills}}', skills || "Not provided")
             .replace('{{experience}}', experience || "Not provided")
-            .replace('{{skills}}', skills || "Not provided");
+            .replace('{{education}}', education || "Not provided")
+            .replace('{{summary}}', summary || "Not provided")
 
         console.log("HTML content generated.");
 
+        // Generate PDF using Puppeteer
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
         await page.setContent(htmlContent);
@@ -54,7 +63,9 @@ export class GenerateCommand extends Command {
 
         await browser.close();
 
+        // Send the generated PDF to the user
         await ctx.replyWithDocument({ source: Buffer.from(pdfBuffer), filename: 'cv.pdf' });
         console.log("CV generated and sent successfully.");
+        await ctx.reply("Your CV is ready! Good luck with your job search! Feel free to come back anytime.")
     }
 }

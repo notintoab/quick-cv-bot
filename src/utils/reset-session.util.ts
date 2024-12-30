@@ -5,10 +5,13 @@ export function resetSessionData(ctx: IBotContext) {
         botStart: true,
         cvTemplate: undefined,
         cvData: {
-            name: undefined,
-            surname: undefined,
-            experience: undefined,
+            fullname: undefined,
+            email: undefined,
+            phone: undefined,
             skills: undefined,
+            experience: undefined,
+            education: undefined,
+            summary: undefined,
         },
         step: null,
     };
